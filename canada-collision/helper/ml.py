@@ -140,21 +140,22 @@ class SupervisedModels:
     area_prc = auc(recalls, precisions)
 
     # ROC curve
-    fig, (ax1,ax2) = plt.subplots(1, 2, figsize = (20,8))
-    ax1.plot(fpr, tpr, color=color, label=(label) % area_auc)
-    ax1.plot([0, 1], [0, 1], 'k--')
-    ax1.axis([0, 1, 0, 1])
-    ax1.set_xlabel('False positive rate (FPR)')
-    ax1.set_ylabel('True positive rate (TPR)')
-    ax1.set_title('ROC Curve for the Cross-Validation Training Set')
-    ax1.legend(loc='best')
+    plt.subplot(121)
+    plt.plot(fpr, tpr, color=color, label=(label) % area_auc)
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.axis([0, 1, 0, 1])
+    plt.xlabel('False positive rate (FPR)')
+    plt.ylabel('True positive rate (TPR)')
+    plt.title('ROC Curve for the Cross-Validation Training Set')
+    plt.legend(loc='best')
 
     # PR curve
-    ax2.plot(recalls, precisions, color=color, label=(label) % area_prc)
-    ax2.set_xlabel('Recall')
-    ax2.set_ylabel('Precision')
-    ax2.set_title('Precision-Recall Curve for the Cross-Validation Training Set')
-    ax2.legend(loc='best')
+    plt.subplot(122)
+    plt.plot(recalls, precisions, color=color, label=(label) % area_prc)
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.title('Precision-Recall Curve for the Cross-Validation Training Set')
+    plt.legend(loc='best')
 
   def plot_roc_prc(self, model, feat_mtx, labels, test_feat_mtx, test_labels, color=None, label=None):
     """
@@ -194,19 +195,20 @@ class SupervisedModels:
     area_prc = auc(recalls, precisions)
 
     # ROC curve
-    fig, (ax1,ax2) = plt.subplots(1,2, figsize = (20,8))
-    ax1.plot(fpr, tpr, color=color, label=(label) % area_auc)
-    ax1.plot([0, 1], [0, 1], 'k--')
-    ax1.axis([0, 1, 0, 1])
-    ax1.set_xlabel('False positive rate (FPR)')
-    ax1.set_ylabel('True positive rate (TPR)')
-    ax1.set_title('ROC Curve for the Test Set')
-    ax1.legend(loc='best')
+    plt.subplot(121)
+    plt.plot(fpr, tpr, color=color, label=(label) % area_auc)
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.axis([0, 1, 0, 1])
+    plt.xlabel('False positive rate (FPR)')
+    plt.ylabel('True positive rate (TPR)')
+    plt.title('ROC Curve for the Test Set')
+    plt.legend(loc='best')
 
     # PR curve
-    ax2.plot(recalls, precisions, color=color, label=(label) % area_prc)
-    ax2.set_xlabel('Recall')
-    ax2.set_ylabel('Precision')
-    ax2.set_title('Precision-Recall Curve for the Test Set')
-    ax2.legend(loc='best')
+    plt.subplot(122)
+    plt.plot(recalls, precisions, color=color, label=(label) % area_prc)
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.title('Precision-Recall Curve for the Test Set')
+    plt.legend(loc='best')
 
