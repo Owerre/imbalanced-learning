@@ -140,7 +140,7 @@ class SupervisedModels:
     area_prc = auc(recalls, precisions)
 
     # ROC curve
-    fig, (ax1,ax2) = plt.subplots(figsize = (20,8))
+    fig, (ax1,ax2) = plt.subplots(1, 2, figsize = (20,8))
     ax1.plot(fpr, tpr, color=color, label=(label) % area_auc)
     ax1.plot([0, 1], [0, 1], 'k--')
     ax1.axis([0, 1, 0, 1])
@@ -194,7 +194,7 @@ class SupervisedModels:
     area_prc = auc(recalls, precisions)
 
     # ROC curve
-    fig, (ax1,ax2) = plt.subplots(figsize = (20,8))
+    fig, (ax1,ax2) = plt.subplots(1,2, figsize = (20,8))
     ax1.plot(fpr, tpr, color=color, label=(label) % area_auc)
     ax1.plot([0, 1], [0, 1], 'k--')
     ax1.axis([0, 1, 0, 1])
