@@ -14,21 +14,20 @@ The figure below shows the fatality rate is increased at 5 p.m. on Sundays and t
 
 ![fig1](image/fig_h.png)
 
-
-### 2. Fatality Rate By Month
-The figure below shows the fatality rate is increased in the month of July and August, which is obviously the summer season.
-
-![fig1](image/fig9.png)
-
-### 3. Fatality Rate By Vehicle Model Year
+### 2. Fatality Rate By Vehicle Model Year
 This figure below shows that the 2000 & 2001 vehicle models caused the most fatal collisions and they were driven mostly by males.
 ![fig5](image/fig5.png)
 
 
-### 4. Fatality Rate By Age
+### 3. Fatality Rate By Age
 
 This figure below shows that young male drivers caused the most fatal collision.
 ![fig3](image/fig3.png)
+
+### 4. Fatality Rate By Month
+The figure below shows the fatality rate is increased in the month of July and August, which is obviously the summer season.
+
+![fig1](image/fig9.png)
 
 ## Dimensionality Reduction
 
