@@ -14,7 +14,7 @@ The figures below show the total fatality and fatality rate by different variabl
 ![fig1](image/fig9.png)
 
 This figure below shows that the 2000 & 2001 vehicle models caused the most fatal collisions and they were driven mostly by mostly males.
-![fig5](image/fig5.png)
+![fig5](image/fig5a.png)
 
 This figure below shows that young male drivers caused the most fatal collision.
 ![fig3b](image/fig3b.png)
