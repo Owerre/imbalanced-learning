@@ -2,7 +2,7 @@
 
 ![fig0](image/photo.jpg)
 
-In real-world datasets, class imbalance is a common problem. An imbalanced dataset occurs when one class (called the majority, or negative class) vastly outnumbered the other (called the minority, or positive class). The class imbalance problem is manifested when the positive class is the class of interest. We have obtained a real-world dataset of motor vehicle collisions with an inherent imbalanced class problem.
+In many real-world datasets, class imbalance is a common problem. An imbalanced dataset occurs when one class (majority or negative class) vastly outnumbered the other (minority or positive class). The class imbalance problem is manifested when the positive class is the class of interest. We have obtained a real-world dataset of motor vehicle collisions with an inherent imbalanced class problem.
 
 ##  Dataset Information:   [National Collision Database](https://open.canada.ca/data/en/dataset/1eb9eba7-71d1-4b30-9fb1-30cbdab7e63a)
 
@@ -11,19 +11,19 @@ In real-world datasets, class imbalance is a common problem. An imbalanced datas
 
 The figures below show the total fatality and fatality rate by different variables.
 
-![fig1](image/fig9.pdf)
+![fig1](image/fig9.png)
 
-![fig2](image/fig1.pdf)
+![fig2](image/fig1.png)
 
 This figure shows that young people caused the most fatal collision
-![fig3b](image/fig3b.pdf)
+![fig3b](image/fig3b.png)
 
 This figure show that fatality rate is increased in older people
-![fig3a](image/fig3a.pdf)
+![fig3a](image/fig3a.png)
 
 ## Dimensionality Reduction
 
-![fig4](image/pca.pdf)
+![fig4](image/pca.png)
 
 ##  Model Results
 
