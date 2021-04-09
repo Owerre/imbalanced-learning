@@ -13,7 +13,7 @@ The figures below show the total fatality and fatality rate by different variabl
 
 ![fig1](image/fig9.png)
 
-This figure below shows that young people caused the most fatal collision
+This figure below shows that young male drivers caused the most fatal collision
 ![fig3b](image/fig3b.png)
 
 This figure below show that fatality rate is increased in older people
