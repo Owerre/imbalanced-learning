@@ -7,14 +7,19 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 ##  Dataset Information:   [National Collision Database](https://open.canada.ca/data/en/dataset/1eb9eba7-71d1-4b30-9fb1-30cbdab7e63a)
 
 
-## Fatality Rate
+## Exploratory Data Analysis
 
-The figures below shows the fatality rate is increased in the month of July and August, which is obviously the summer season.
+### 1. Fatality Rate By Month
+The figure below shows the fatality rate is increased in the month of July and August, which is obviously the summer season.
 
 ![fig1](image/fig9.png)
 
+### 2. Fatality Rate By Vehicle Model Year
 This figure below shows that the 2000 & 2001 vehicle models caused the most fatal collisions and they were driven mostly by mostly males.
 ![fig5](image/fig5a.png)
+
+
+### 3. Fatality Rate By Age
 
 This figure below shows that young male drivers caused the most fatal collision.
 ![fig3b](image/fig3b.png)
