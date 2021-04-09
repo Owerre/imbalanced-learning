@@ -9,23 +9,26 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ## Exploratory Data Analysis
 
-### 1. Fatality Rate By Month
+### 1. Fatality Rate By Hour
+The figure below shows the fatality rate is increased at 5 p.m. on Sundays and the average age involved is around 32 years old.
+
+![fig1](image/fig_h.png)
+
+
+### 2. Fatality Rate By Month
 The figure below shows the fatality rate is increased in the month of July and August, which is obviously the summer season.
 
 ![fig1](image/fig9.png)
 
-### 2. Fatality Rate By Vehicle Model Year
+### 3. Fatality Rate By Vehicle Model Year
 This figure below shows that the 2000 & 2001 vehicle models caused the most fatal collisions and they were driven mostly by males.
-![fig5](image/fig5a.png)
+![fig5](image/fig5.png)
 
 
-### 3. Fatality Rate By Age
+### 4. Fatality Rate By Age
 
 This figure below shows that young male drivers caused the most fatal collision.
-![fig3b](image/fig3b.png)
-
-This figure below shows that fatality rate is increased in older people.
-![fig3a](image/fig3a.png)
+![fig3](image/fig3.png)
 
 ## Dimensionality Reduction
 
