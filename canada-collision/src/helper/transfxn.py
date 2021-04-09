@@ -41,104 +41,92 @@ class TransformationPipeline:
         Define parameters
         """
 
-    def num_pipeline(self, train_feat_mtx, test_feat_mtx):
+    def num_pipeline(self, X_train, X_test):
         """
         Transformation pipeline of data with only numerical variables
 
         Parameters
         ___________
-        train_feat_mtx: Training feature matrix
-        test_feat_mtx: Test feature matrix
+        X_train: Training feature matrix
+        X_test: Test feature matrix
 
         Returns
         __________
         Transformation pipeline and transformed data in array
         """
         # Create pipeline
-        # num_pipeline = Pipeline([ ('log', cf.LogTransformer()),
-        #                         ('std_scaler', StandardScaler()),
-        #                         ])
+        num_pipeline = Pipeline([ 
+                                ('std_scaler', StandardScaler()),
+                                ])
 
-        # Instantiate the class
-        scaler = StandardScaler() 
+        # Original numerical feature names 
+        feat_nm = list(X_train.select_dtypes('number'))
 
         # Fit transform the training set
-        X_train_scaled = scaler.fit_transform(train_feat_mtx)
+        X_train_scaled = num_pipeline.fit_transform(X_train)
         
         # Only transform the test set
-        X_test_scaled = scaler.transform(test_feat_mtx)
-        return scaler, X_train_scaled, X_test_scaled
-
-    def complete_pipeline(self, train_feat_mtx, test_feat_mtx):
+        X_test_scaled = num_pipeline.transform(X_test)
+        return X_train_scaled, X_test_scaled, feat_nm
+    
+    def cat_pipeline(self, X_train, X_test):
         """
-        Transformation pipeline of data with both numerical and categorical 
-        variables. This transformation returns a pandas dataframe
+        Transformation pipeline of categorical variables
 
         Parameters
         ___________
-        train_feat_mtx: Training feature matrix
-        test_feat_mtx: Test feature matrix
+        X_train: Training feature matrix
+        X_test: Test feature matrix
 
         Returns
         __________
-        Transformed data in Pandas DataFrame
+        Transformation pipeline and transformed data in array
         """
-        # List of categorical attributes
-        cat_attribs = list(train_feat_mtx.select_dtypes('O'))
-
-        # List of numerical attributes
-        num_attribs = list(train_feat_mtx.select_dtypes('number'))
-
-        # Binarize the categorical attributes
-        cat_attribs = [([cat], LabelBinarizer()) for cat in cat_attribs]
-
-        # Power transform and Standardize the numerical attributes
-        num_attribs = [([num], StandardScaler()) for num in num_attribs]
-
-        # Build a dataframe mapper pipeline
-        mapper = DataFrameMapper(cat_attribs + num_attribs, df_out = True)
+        # Instatiate class
+        one_hot_encoder = OneHotEncoder()
 
         # Fit transform the training set
-        X_train_scaled = mapper.fit_transform(train_feat_mtx)
-
+        X_train_scaled = one_hot_encoder.fit_transform(X_train)
+        
         # Only transform the test set
-        X_test_scaled = mapper.transform(test_feat_mtx)
-        return X_train_scaled, X_test_scaled
+        X_test_scaled = one_hot_encoder.transform(X_test)
+
+        # Feature names for output features
+        feat_nm = list(one_hot_encoder.get_feature_names(list(X_train.select_dtypes('O'))))
+        return X_train_scaled.toarray(), X_test_scaled.toarray(), feat_nm
   
-    def complete_pipeline_2(self, train_feat_mtx, test_feat_mtx):
+    def preprocessing(self, X_train, X_test):
         """
         Transformation pipeline of data with both numerical and categorical 
-        variables. This transformation returns a dense array
+        variables.
 
         Parameters
         ___________
-        train_feat_mtx: Training feature matrix
-        test_feat_mtx: Test feature matrix
+        X_train: Training feature matrix
+        X_test: Test feature matrix
 
         Returns
         __________
         Transformed data in array
         """
-        # List of categorical attributes
-        cat_attribs = list(train_feat_mtx.select_dtypes('O'))
 
-        # List of numerical attributes
-        num_attribs = list(train_feat_mtx.select_dtypes('number'))
+        # Numerical transformation pipepline
+        num_train, num_test, num_col = self.num_pipeline(X_train.select_dtypes('number'), 
+                                        X_test.select_dtypes('number'))
 
-        # Call numerical transformation pipepline
-        num_pipeline_ = self.num_pipeline(train_feat_mtx.select_dtypes('number'),
-                                            test_feat_mtx.select_dtypes('number'))[0]
+        # Categorical transformation pipepline
+        cat_train, cat_test, cat_col = self.cat_pipeline(X_train.select_dtypes('O'), 
+                                        X_test.select_dtypes('O'))
 
-        full_pipeline = ColumnTransformer([("num", num_pipeline_, num_attribs),
-                                            ("cat", OneHotEncoder(), cat_attribs),
-                                            ])
+        # Transformed training set
+        X_train_scaled = np.concatenate((num_train,cat_train), axis = 1)
 
-        # Fit transform the training set
-        X_train_scaled = full_pipeline.fit_transform(train_feat_mtx)
+        # Transformed test set
+        X_test_scaled = np.concatenate((num_test,cat_test), axis = 1)
 
-        # Only transform the test set
-        X_test_scaled = full_pipeline.transform(test_feat_mtx)
-        return X_train_scaled, X_test_scaled
+        # Feature names
+        feat_nm = num_col + cat_col
+        return X_train_scaled, X_test_scaled, feat_nm
 
     def pca_plot_labeled(self, data_, labels, palette = None):
         """
