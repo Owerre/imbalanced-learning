@@ -26,7 +26,7 @@ This figure below shows that young male drivers caused the most fatal collision.
 
 ### 4. Fatality Rate By Month
 
-The figure below shows that fatal collisions are most likely in the month of July and August, which is the summer season in Canada.
+The figure below shows that fatal collisions are most likely in the month of July and August, which is the summer season in Canada. They also occur mostly on weekends.
 
 ![fig1](canada-collision/image/fig9.png)
 
