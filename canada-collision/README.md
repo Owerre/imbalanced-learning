@@ -11,12 +11,12 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 The figures below show the total fatality and fatality rate by different variables.
 
-![fig1](image/fig9.png)
+![fig1](image/fig9a.png)
 
-This figure below shows that young male drivers caused the most fatal collision
+This figure below shows that young male drivers caused the most fatal collision.
 ![fig3](image/fig3.png)
 
-This figure below show that fatality rate is increased in older people
+This figure below shows that fatality rate is increased in older people.
 ![fig3a](image/fig3a.png)
 
 ## Dimensionality Reduction
