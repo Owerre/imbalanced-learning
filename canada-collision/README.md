@@ -9,7 +9,7 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ## Fatality Rate
 
-The figures below show the total fatality and fatality rate by different variables.
+The figures below shows the fatality rate is increased in the month of July and August, which is obviously the summer season.
 
 ![fig1](image/fig9.png)
 
