@@ -13,8 +13,6 @@ The figures below show the total fatality and fatality rate by different variabl
 
 ![fig1](image/fig9.png)
 
-![fig2](image/fig1.png)
-
 This figure shows that young people caused the most fatal collision
 ![fig3b](image/fig3b.png)
 
