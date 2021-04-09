@@ -15,7 +15,7 @@ The figure below shows the fatality rate is increased in the month of July and A
 ![fig1](image/fig9.png)
 
 ### 2. Fatality Rate By Vehicle Model Year
-This figure below shows that the 2000 & 2001 vehicle models caused the most fatal collisions and they were driven mostly by mostly males.
+This figure below shows that the 2000 & 2001 vehicle models caused the most fatal collisions and they were driven mostly by males.
 ![fig5](image/fig5a.png)
 
 
