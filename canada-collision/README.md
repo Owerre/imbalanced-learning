@@ -14,7 +14,7 @@ The figure below shows the fatality rate is increased at 5 p.m. on Sundays and t
 
 ![fig1](image/fig_h.png)
 
-### 2. Fatality Rate By Vehicle Model Year
+### 2. Total fatality  By Vehicle Model Year
 This figure below shows that the 2000 & 2001 vehicle models caused the most fatal collisions and they were driven mostly by males.
 ![fig5](image/fig5.png)
 
