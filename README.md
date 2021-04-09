@@ -25,12 +25,14 @@ This figure below shows that young male drivers caused the most fatal collision.
 ![fig3](canada-collision/image/fig3.png)
 
 ### 4. Fatality Rate By Month
+
 The figure below shows the fatality rate is increased in the month of July and August, which is obviously the summer season.
 
 ![fig1](canada-collision/image/fig9.png)
 
 ## Dimensionality Reduction
 
+The PCA plot of the data is shown below
 ![fig4](canada-collision/image/pca.png)
 
 ##  Model Results
