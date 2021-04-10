@@ -9,8 +9,8 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ## Exploratory Data Analysis
 
-### 1. Total Fatality By Hour
-The figure below shows the fatality rate is increased at 5 p.m. on Fridays and the average age involved is around 36 years old.
+### 1. Fatality Rate By Hour
+The figure below shows the total fatal collisions is high at 5 p.m. on Fridays. The average age involved is around 36 years old and the average number of vehicles involved is around 2 vehicles.
 
 ![fig1](canada-collision/image/fig_h.png)
 
