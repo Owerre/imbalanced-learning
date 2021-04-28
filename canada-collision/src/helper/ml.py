@@ -11,8 +11,8 @@ import seaborn as sns
 # Supervised classification models
 import xgboost as xgb
 from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
 from xgboost.sklearn import XGBClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
 # Model performance metrics
@@ -32,7 +32,7 @@ class SupervisedModels:
         Parameter initialization
         """
 
-    def eval_metrics_cv(self, model, X_train, y_train, cv_fold, scoring = None):
+    def eval_metrics_cv(self, model, X_train, y_train, cv_fold, scoring = None, model_nm = None):
         """
         Cross-validation on the training set
 
@@ -43,6 +43,7 @@ class SupervisedModels:
         y_train: class labels
         cv_fold: number of cross-validation fold
         scoring: performance metric
+        model_nm: name of classifier
 
         Returns
         _____________
@@ -62,14 +63,16 @@ class SupervisedModels:
         y_pred_proba = cross_val_predict(model, X_train, y_train, cv=cv_fold, method='predict_proba')[:,1]
 
         # Print results
-        print('-' * 75)
-        print('Cross-validation accuracy (std): %f (%f)' % (score.mean(), score.std()))
+        print('{}-Fold cross-validation results for {}'.format(str(cv_fold), str(model_nm)))
+        print('-' * 60)
+        print('Accuracy (std): %f (%f)' % (score.mean(), score.std()))
         print('AUROC: %f' % (roc_auc_score(y_train, y_pred_proba)))
         print('AUPRC: %f' % (average_precision_score(y_train, y_pred_proba)))
         print('Predicted classes:', np.unique(y_cv_pred))
         print('Confusion matrix:\n', confusion_matrix(y_train, y_cv_pred))
         print('Classification report:\n', classification_report(y_train, y_cv_pred))
-        print('-' * 75)
+        print('-' * 60)
+
 
     def plot_auc_ap_svm(self, X_train, y_train, cv_fold):
         """
@@ -85,13 +88,13 @@ class SupervisedModels:
         _____________
         matplolib figure of auc vs. hyperparameters
         """
-        C_list = [2**x for x in range(-2,9,2)]
-        gamma_list = [2**x for x in range(-11,-5,2)]
+        C_list = [2**x for x in range(0,11,2)]
+        gamma_list = [2**x for x in range(-5,1,2)]
         auc_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(gamma_list))]
         ap_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(gamma_list))]
 
-        axes_labels = ['2^-2', '2^0', '2^2', '2^4', '2^6', '2^8']
-        gamma_labels = ['2^-11', '2^-9', '2^-7']
+        axes_labels = ['2^0', '2^2', '2^4', '2^6', '2^8', '2^10']
+        gamma_labels = ['2^-5', '2^-3', '2^-1']
         plt.rcParams.update({'font.size': 15})
         fig, (ax1, ax2) = plt.subplots(1,2, figsize = (18,6))
 
@@ -107,14 +110,14 @@ class SupervisedModels:
 
         ax1.set_xlabel("C", fontsize = 15)
         ax1.set_ylabel("AUC", fontsize = 15)
-        ax1.set_title("{}-Fold Cross-Validation with SVM".format(cv_fold), fontsize = 15)
+        ax1.set_title("{}-Fold Cross-Validation with RBF Kernel SVM".format(cv_fold), fontsize = 15)
         ax1.set_xticklabels(axes_labels)
         ax1.set_xticks(range(len(C_list)))
         ax1.legend(loc = 'best')
 
         ax2.set_xlabel("C", fontsize = 15)
         ax2.set_ylabel("AP", fontsize = 15)
-        ax2.set_title("{}-Fold Cross-Validation with SVM".format(cv_fold), fontsize = 15)
+        ax2.set_title("{}-Fold Cross-Validation with RBF Kernel SVM".format(cv_fold), fontsize = 15)
         ax2.set_xticks(range(len(C_list)))
         ax2.set_xticklabels(axes_labels)
         ax2.legend(loc = 'best')
@@ -168,7 +171,7 @@ class SupervisedModels:
         ax2.legend(loc = 'best')
         plt.show()
 
-    def test_pred(self, model, X_train, y_train, X_test, y_test):
+    def test_pred(self, model, X_train, y_train, X_test, y_test, model_nm = None):
         """
         Predictions on the test set
 
@@ -179,6 +182,7 @@ class SupervisedModels:
         X_test: feature matrix of the test set
         y_train: training set class labels
         y_test: test set class labels
+        model_nm: name of classifier
 
         Returns
         _____________
@@ -197,17 +201,18 @@ class SupervisedModels:
         # Predict probability
         y_pred_proba = model.predict_proba(X_test)[:, 1]
 
-        print('-' * 75)
-        print('Test accuracy:  %f' % (accuracy))
+        print('Test predictions for {}'.format(str(model_nm)))
+        print('-' * 60)
+        print('Accuracy:  %f' % (accuracy))
         print('AUROC: %f' % (roc_auc_score(y_test, y_pred_proba)))
         print('AUPRC: %f' % (average_precision_score(y_test, y_pred_proba)))
         print('Predicted classes:', np.unique(y_pred))
         print('Confusion matrix:\n', confusion_matrix(y_test, y_pred))
         print('Classification report:\n', classification_report(y_test, y_pred))
-        print('-' * 75)
+        print('-' * 60)
 
     def plot_roc_pr_curves(self, model, X_train, y_train, X_test, y_test, 
-    cv_fold, color=None, label=None):
+                            cv_fold, color=None, label=None):
         """
         Plot ROC and PR curves for cross-validation and test sets
 
