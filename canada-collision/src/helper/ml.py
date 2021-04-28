@@ -135,7 +135,7 @@ class SupervisedModels:
         matplolib figure of auc vs. hyperparameters
         """
         C_list = [2**x for x in range(-2,9,2)]
-        class_wgt_list = [None, 'balanced', {0:1, 1:2}, {0:1, 1:61}]
+        class_wgt_list = [None, 'balanced', {0:1, 1:2}, {0:1, 1:3}]
         auc_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(class_wgt_list))]
         ap_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(class_wgt_list))]
 
