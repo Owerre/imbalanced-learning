@@ -8,16 +8,23 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ## Exploratory Data Analysis
 
-### 1. Fatality rate by month
+###  Fatality rate by month
 
 - Fatal collisions are most likely in the months of July, June, and August respectively, which are the summer season in Canada.
 - Fatal collisions occur mostly on weekends (Sundays & Saturdays respectively), and are predominant in males.
 
 ![fig1a](canada-collision/image/fig9a.png)
 
-![fig1b](canada-collision/image/fig9b.png)
+### Fatality rate by collision year
 
-### 2. Fatality rate by collision hour
+- Fatal collisions were mostly in the year 2006, 2005, and 2004 respectively.
+- Fatality rate peaked in July 2003
+
+  ![fig1a](canada-collision/image/fig1a.png)
+
+  ![fig1b](canada-collision/image/fig1b.png)
+
+###  Fatality rate by collision hour
 
 - Total fatal collisions is high at 5 p.m. on Fridays.
 - The average age involved is around 36 years old.
@@ -25,11 +32,11 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ![fig1](canada-collision/image/fig_h.png)
 
-### 3. Total fatality  by vehicle model year
+###  Total fatality  by vehicle model year
 
 - The 2000s vehicle models caused the most fatal collisions and they were driven mostly by males.![fig5](canada-collision/image/fig5.png)![fig5](canada-collision/image/fig7.png)
 
-### 4. Fatality rate by age group
+###  Fatality rate by age group
 
 - Young people in their 20s (mostly males) are involved in most fatal collisions
 - Fatality rate increases in older people![fig3a](canada-collision/image/fig3a.png)![fig3b](canada-collision/image/fig3b.png)
