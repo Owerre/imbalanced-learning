@@ -15,6 +15,8 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ![fig1a](canada-collision/image/fig9a.png)
 
+![fig1a](canada-collision/image/fig9b.png)
+
 ### Fatality rate by collision year
 
 - Fatal collisions were mostly in the year 2006, 2005, and 2004 respectively.
