@@ -10,8 +10,8 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ### 1. Fatality rate by month
 
-- Fatal collisions are most likely in the month of July, June, and August respectively, which is the summer season in Canada.
-- Fatal collisions occur mostly on weekends (Saturdays and Sundays) and are predominant in males.
+- Fatal collisions are most likely in the months of July, June, and August respectively, which are the summer season in Canada.
+- Fatal collisions occur mostly on weekends (Sundays & Saturdays respectively), and are predominant in males.
 
 ![fig1a](canada-collision/image/fig9a.png)
 
