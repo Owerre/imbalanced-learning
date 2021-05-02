@@ -1,4 +1,4 @@
-# Canada Motor Vehicle Collisions From 1999 - 2017
+# Canada Motor Vehicle Collisions (1999 - 2017)
 
 ![fig0](canada-collision/image/photo.jpg)
 
