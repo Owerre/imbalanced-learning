@@ -36,7 +36,7 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ###  Total fatality  by vehicle model year
 
-- The 2000s vehicle models caused the most fatal collisions and they were driven mostly by males.![fig5](canada-collision/image/fig5.png)![fig5](canada-collision/image/fig7.png)
+- The light duty 2000s (i.e. 2000-2009) model vehicles are involved in the most fatal collisions and they were driven by mostly males.![fig5](canada-collision/image/fig5.png)![fig5](canada-collision/image/fig7.png)
 
 ###  Fatality rate by age group
 
