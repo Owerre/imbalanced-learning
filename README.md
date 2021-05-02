@@ -19,7 +19,7 @@ In many real-world data sets, class imbalance is a common problem. An imbalanced
 
 ### Fatality rate by collision year
 
-- Fatal collisions were mostly in the year 2006, 2005, and 2004 respectively.
+- Fatal collisions were mostly in the year 2006 and the weather condition was visibility limited.
 - Fatality rate peaked in July 2003
 
   ![fig1a](canada-collision/image/fig1a.png)
