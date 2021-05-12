@@ -18,33 +18,40 @@ In many real-world datasets, class imbalance is a common problem. An imbalanced 
 ![fig](canada-collision/image/fig9c.png)
 ![fig](canada-collision/image/fig9a.png)
 
-### 2. Fatality rate by collision year
+### 2. Fatality rate by collision configuration
 
-- Fatal collisions were mostly in the year 1999 & 2006.
+- Head on collision caused the most fatality
+
+  ![fig](canada-collision/image/fig_conf.png)
+ 
+### 3. Fatality rate by collision year
+
+- Fatal collisions occurred mostly in the years 1999 & 2006.
 - Fatality rate also peaked in July 2003
 
   ![fig](canada-collision/image/fig1c.png)
   ![fig](canada-collision/image/fig1a.png)
   ![fig](canada-collision/image/fig1b.png)
 
-### 3. Fatality rate by collision hour
+### 4. Fatality rate by collision hour
 
 - Fatal collisions were most likely at 6 p.m. on Sundays.
 
 ![fig](canada-collision/image/fig_h2.png)
 ![fig](canada-collision/image/fig_h1.png)
 
-### 4. Total fatality  by vehicle model year
+### 5. Total fatality  by vehicle model year
 
 - The light duty 2000s (i.e. 2000-2009) model vehicles are involved in the most fatal collisions and they were driven by mostly males.
 
 ![fig5](canada-collision/image/fig5a.png)
 ![fig5](canada-collision/image/fig5b.png)
+![fig5](canada-collision/image/fig7.png)
 
-### 5. Fatality rate by age group
+### 6. Fatality rate by age group
 
 - Young people in their 20s (mostly males) are involved in most fatal collisions
-- Fatality rate increases in older people
+- Fatality rate increases with age
 
 ![fig](canada-collision/image/fig3a.png)
 ![fig](canada-collision/image/fig3b.png)
