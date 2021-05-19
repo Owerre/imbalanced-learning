@@ -6,6 +6,13 @@ In many real-world datasets, class imbalance is a common problem. An imbalanced 
 
 ## Dataset Information: [open.canada.ca](https://open.canada.ca/data/en/dataset/1eb9eba7-71d1-4b30-9fb1-30cbdab7e63a)
 
+
+- ## Dimensionality Reduction
+
+The PCA plot of the data is shown below
+![fig4](canada-collision/image/pca.png)
+
+
 ## Exploratory Data Analysis
 
 ### 1. Fatality rate by month
@@ -55,9 +62,4 @@ In many real-world datasets, class imbalance is a common problem. An imbalanced 
 
 ![fig](canada-collision/image/fig3a.png)
 ![fig](canada-collision/image/fig3b.png)
-
-- ## Dimensionality Reduction
-
-The PCA plot of the data is shown below
-![fig4](canada-collision/image/pca.png)
 
