@@ -159,4 +159,5 @@ class TransformationPipeline:
         plt.ylabel("Principal component 2")
         plt.title("Dimensionality reduction")
         plt.legend(loc = 'best')
+        plt.savefig('../image/pca.png')
         plt.show()

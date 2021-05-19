@@ -61,9 +61,3 @@ In many real-world datasets, class imbalance is a common problem. An imbalanced 
 The PCA plot of the data is shown below
 ![fig4](canada-collision/image/pca.png)
 
-## Model results on small data set
-
-The result shown below is based on a small sample of the dataset due to lack of computational resources to train on the entire dataset.
-
-![fig5](canada-collision/image/sup.png)
-
