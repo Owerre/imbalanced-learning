@@ -150,7 +150,7 @@ class TransformationPipeline:
 
         # plot results
         plt.rcParams.update({'font.size': 15})
-        plt.subplots(figsize = (12,8))
+        plt.subplots(figsize = (12,7))
         sns.scatterplot(x = 'PC1', y = 'PC2', data = X_reduced_pca,
         hue = 'class', palette = palette)
 
