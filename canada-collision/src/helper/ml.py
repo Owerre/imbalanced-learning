@@ -88,12 +88,12 @@ class SupervisedModels:
         _____________
         matplolib figure of auc vs. hyperparameters
         """
-        C_list = [2**x for x in range(0,11,2)]
+        C_list = [2**x for x in range(-2,9,2)]
         gamma_list = [2**x for x in range(-11,-5,2)]
         auc_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(gamma_list))]
         ap_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(gamma_list))]
 
-        axes_labels = ['2^0', '2^2', '2^4', '2^6', '2^8', '2^10']
+        axes_labels = ['2^-2', '2^0', '2^2', '2^4', '2^6', '2^8']
         gamma_labels = ['2^-11', '2^-7', '2^-5']
         plt.rcParams.update({'font.size': 15})
         fig, (ax1, ax2) = plt.subplots(1,2, figsize = (18,6))

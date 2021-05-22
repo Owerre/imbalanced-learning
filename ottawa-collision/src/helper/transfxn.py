@@ -9,14 +9,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Data pre-processing
-from sklearn_pandas import DataFrameMapper
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import LabelBinarizer
+from sklearn.preprocessing import PowerTransformer
 from sklearn.preprocessing import StandardScaler
-from sklearn.base import TransformerMixin
 
 # Dimensionality reduction
 from sklearn.decomposition import PCA
@@ -74,7 +72,7 @@ class TransformationPipeline:
         Transformation pipeline and transformed data in array
         """
         # Instatiate class
-        one_hot_encoder = OneHotEncoder()
+        one_hot_encoder = OneHotEncoder(handle_unknown= 'ignore')
 
         # Fit transform the training set
         X_train_scaled = one_hot_encoder.fit_transform(X_train)
@@ -153,5 +151,5 @@ class TransformationPipeline:
         plt.ylabel("Principal component 2")
         plt.title("Dimensionality reduction")
         plt.legend(loc = 'best')
-        # plt.savefig('../image/pca.png')
+        plt.savefig('../image/pca.png')
         plt.show()
