@@ -6,35 +6,34 @@ In many real-world datasets, class imbalance is a common problem. An imbalanced 
 
 ## Dataset Information: [open.canada.ca](https://open.canada.ca/data/en/dataset/1eb9eba7-71d1-4b30-9fb1-30cbdab7e63a)
 
-
-- ## Dimensionality Reduction
+## Dimensionality Reduction
 
 The PCA plot of the data is shown below
-![fig4](canada-collision/image/pca.png)
-
+![fig](canada-collision/image/pca.png)
 
 ## Exploratory Data Analysis
 
 ### 1. Fatality rate by month
 
-- Fatal collisions are most likely in the months of July, June, and August respectively, which are the summer season in Canada.
-- Fatal collisions occur mostly on weekends (Sundays & Saturdays respectively), and are predominant in males.
+- Fatal collisions are most likely in the months of June, July, and August, which are the summer months in Canada.
+- Fatal collisions were most likely with limited visibility weather condition in the month of September.
+- Fatal collisions occurred mostly on weekends - Sundays & Saturdays.
+- Head-on collision caused the most fatality each month.
 
-
+![fig](canada-collision/image/fig9a.png)
 ![fig](canada-collision/image/fig9b.png)
 ![fig](canada-collision/image/fig9c.png)
-![fig](canada-collision/image/fig9a.png)
 
 ### 2. Fatality rate by collision configuration
 
-- Head on collision caused the most fatality
+- Head-on collision caused the most fatality
 
-  ![fig](canada-collision/image/fig_conf.png)
+![fig](canada-collision/image/fig_conf1.png)
+![fig](canada-collision/image/fig_conf2.png)
  
 ### 3. Fatality rate by collision year
 
-- Fatal collisions occurred mostly in the years 1999 & 2006.
-- Fatality rate also peaked in July 2003
+- Fatal collisions were most likely in the years 1999 & 2007, and the weather condition was visibility limited.
 
   ![fig](canada-collision/image/fig1c.png)
   ![fig](canada-collision/image/fig1a.png)
@@ -42,14 +41,17 @@ The PCA plot of the data is shown below
 
 ### 4. Fatality rate by collision hour
 
-- Fatal collisions were most likely at 6 p.m. on Sundays.
+- Fatality rate  is high at 5 a.m. on Fridays.
+- Most fatal collisions occurred when the weather is clear and sunny.
+- Head-on collision caused the most fatality any hour of the day.
 
-![fig](canada-collision/image/fig_h2.png)
 ![fig](canada-collision/image/fig_h1.png)
+![fig](canada-collision/image/fig_h2.png)
+![fig](canada-collision/image/fig_h3.png)
 
-### 5. Total fatality  by vehicle model year
+### 5. Total fatality by vehicle model year
 
-- The light duty 2000s (i.e. 2000-2009) model vehicles are involved in the most fatal collisions and they were driven by mostly males.
+- Light duty model vehicles in 2000s (i.e. 2000-2009) are involved in most fatal collisions and they were driven by mostly males.
 
 ![fig5](canada-collision/image/fig5a.png)
 ![fig5](canada-collision/image/fig5b.png)
@@ -57,9 +59,10 @@ The PCA plot of the data is shown below
 
 ### 6. Fatality rate by age group
 
-- Young people in their 20s (mostly males) are involved in most fatal collisions
-- Fatality rate increases with age
+- Young people in their 20s (mostly males) are involved in most fatal head-on collisions
+- Fatality rate increases as age increases
 
 ![fig](canada-collision/image/fig3a.png)
 ![fig](canada-collision/image/fig3b.png)
+![fig](canada-collision/image/fig3c.png)
 

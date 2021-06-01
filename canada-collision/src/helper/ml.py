@@ -74,7 +74,7 @@ class SupervisedModels:
         print('-' * 60)
 
 
-    def plot_auc_ap_svm(self, X_train, y_train, cv_fold):
+    def plot_auc_ap_svm(self, X_train, y_train, cv_fold = None, class_weight = None):
         """
         Plot of cross-validation AUC and AP for SVM
 
@@ -100,7 +100,8 @@ class SupervisedModels:
 
         for i, val1 in enumerate(gamma_list):
             for j, val2 in enumerate(C_list):
-                model = SVC(C = val2, gamma = val1, probability = True, kernel = 'rbf', random_state = 42)
+                model = SVC(C = val2, gamma = val1, probability = True, kernel = 'rbf', 
+                            class_weight = class_weight, random_state = 42)
                 model.fit(X_train, y_train)
                 y_pred_proba = cross_val_predict(model, X_train, y_train, cv=cv_fold, method='predict_proba')[:,1]
                 auc_list[i][j] = roc_auc_score(y_train, y_pred_proba)
@@ -123,7 +124,7 @@ class SupervisedModels:
         ax2.legend(loc = 'best')
         plt.show()
 
-    def plot_auc_ap_lr(self, X_train, y_train, cv_fold):
+    def plot_auc_ap_lr(self, X_train, y_train, cv_fold = None):
         """
         Plot of cross-validation AUC and AP for Logistic regression
 
@@ -138,7 +139,7 @@ class SupervisedModels:
         matplolib figure of auc vs. hyperparameters
         """
         C_list = [2**x for x in range(-2,9,2)]
-        class_wgt_list = [None, 'balanced', {0:1, 1:2}, {0:1, 1:3}]
+        class_wgt_list = [None, 'balanced', {0:1, 1:3}, {0:1, 1:61}]
         auc_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(class_wgt_list))]
         ap_list = [pd.Series(0.0, index = range(len(C_list))) for _ in range(len(class_wgt_list))]
 

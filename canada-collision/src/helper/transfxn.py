@@ -52,7 +52,7 @@ class TransformationPipeline:
         Transformation pipeline and transformed data in array
         """
         # Create pipeline
-        num_pipeline = Pipeline([('p_transf', PowerTransformer(standardize=False)),
+        num_pipeline = Pipeline([('p_transf',PowerTransformer(standardize = False)),
                                 ('std_scaler', StandardScaler()),
                                 ])
 
@@ -150,7 +150,7 @@ class TransformationPipeline:
 
         # plot results
         plt.rcParams.update({'font.size': 15})
-        plt.subplots(figsize = (12,7))
+        plt.subplots(figsize = (12,8))
         sns.scatterplot(x = 'PC1', y = 'PC2', data = X_reduced_pca,
         hue = 'class', palette = palette)
 
