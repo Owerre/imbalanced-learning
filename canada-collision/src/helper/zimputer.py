@@ -9,7 +9,6 @@ import numpy as np
 # Data pre-processing
 from sklearn.base import TransformerMixin
 
-
 class DataFrameImputer(TransformerMixin):  
     """ 
     Based on http://stackoverflow.com/a/25562948

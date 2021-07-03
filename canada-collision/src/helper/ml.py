@@ -1,3 +1,8 @@
+####################################
+# Author: S. A. Owerre
+# Date modified: 12/03/2021
+####################################
+
 # Filter warnings
 import warnings
 warnings.filterwarnings("ignore")
@@ -7,13 +12,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-# Supervised classification models
-import xgboost as xgb
-from sklearn.svm import SVC
-from xgboost.sklearn import XGBClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
 
 # Model performance metrics
 from sklearn.model_selection import cross_val_score, cross_val_predict
@@ -154,8 +152,10 @@ class SupervisedModels:
                 y_pred_proba = cross_val_predict(model, X_train, y_train, cv=cv_fold, method='predict_proba')[:,1]
                 auc_list[i][j] = roc_auc_score(y_train, y_pred_proba)
                 ap_list[i][j] = average_precision_score(y_train, y_pred_proba)
-            auc_list[i].plot(label = "class_weight="+str(class_wgt_list[i]), marker = "o", linestyle = "-", ax = ax1)
-            ap_list[i].plot(label = "class_weight="+str(class_wgt_list[i]), marker = "o", linestyle = "-", ax = ax2)
+            auc_list[i].plot(label = "class_weight="+str(class_wgt_list[i]), marker = "o", linestyle = "-",
+                             ax = ax1)
+            ap_list[i].plot(label = "class_weight="+str(class_wgt_list[i]), marker = "o", linestyle = "-", 
+                            ax = ax2)
 
         ax1.set_xlabel("C", fontsize = 15)
         ax1.set_ylabel("AUC", fontsize = 15)
