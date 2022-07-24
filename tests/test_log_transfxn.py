@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import pytest
 import sys
-base_path = '/Users/sowerre/Documents/python/ml-projects/'
+base_path = ''
 sys.path.append(base_path + 'imbalanced-learning/imbalanced-learning/src/helper/')
 import log_transfxn as lg
 
