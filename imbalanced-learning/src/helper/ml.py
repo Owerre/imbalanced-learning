@@ -10,6 +10,8 @@ warnings.filterwarnings('ignore')
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score, cross_val_predict
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.metrics import accuracy_score, auc
@@ -18,7 +20,7 @@ from sklearn.metrics import average_precision_score, precision_recall_curve
 
 
 class SupervisedModels:
-    """This class is used for training supervised classification models."""
+    """A class for training supervised classification models."""
 
     def __init__(self):
         """Parameter initialization."""
@@ -60,10 +62,8 @@ class SupervisedModels:
 
         # Print results
         print(
-            '{}-Fold cross-validation results for {}'.format(
-                str(cv_fold), str(model_nm)
+            f'{str(cv_fold)}-Fold cross-validation results for {str(model_nm)}',
             )
-        )
         print('-' * 60)
         print('Accuracy (std): %f (%f)' % (score.mean(), score.std()))
         print('AUROC: %f' % (roc_auc_score(y_train, y_pred_proba)))
@@ -139,7 +139,7 @@ class SupervisedModels:
         ax1.set_xlabel('C', fontsize=15)
         ax1.set_ylabel('AUC', fontsize=15)
         ax1.set_title(
-            '{}-Fold Cross-Validation with RBF Kernel SVM'.format(cv_fold),
+            f'{cv_fold}-Fold Cross-Validation with RBF Kernel SVM',
             fontsize=15,
         )
         ax1.set_xticklabels(axes_labels)
@@ -149,7 +149,7 @@ class SupervisedModels:
         ax2.set_xlabel('C', fontsize=15)
         ax2.set_ylabel('AP', fontsize=15)
         ax2.set_title(
-            '{}-Fold Cross-Validation with RBF Kernel SVM'.format(cv_fold),
+            f'{cv_fold}-Fold Cross-Validation with RBF Kernel SVM',
             fontsize=15,
         )
         ax2.set_xticks(range(len(C_list)))
@@ -212,9 +212,7 @@ class SupervisedModels:
         ax1.set_xlabel('C', fontsize=15)
         ax1.set_ylabel('AUC', fontsize=15)
         ax1.set_title(
-            '{}-Fold Cross-Validation with Logistic Regression'.format(
-                cv_fold
-            ),
+            f'{cv_fold}-Fold Cross-Validation with Logistic Regression',
             fontsize=15,
         )
         ax1.set_xticklabels(axes_labels)
@@ -224,9 +222,7 @@ class SupervisedModels:
         ax2.set_xlabel('C', fontsize=15)
         ax2.set_ylabel('AP', fontsize=15)
         ax2.set_title(
-            '{}-Fold Cross-Validation with Logistic Regression'.format(
-                cv_fold
-            ),
+            f'{cv_fold}-Fold Cross-Validation with Logistic Regression',
             fontsize=15,
         )
         ax2.set_xticks(range(len(C_list)))
@@ -257,7 +253,7 @@ class SupervisedModels:
         # Predict probability
         y_pred_proba = model.predict_proba(X_test)[:, 1]
 
-        print('Test predictions for {}'.format(str(model_nm)))
+        print(f'Test predictions for {str(model_nm)}')
         print('-' * 60)
         print('Accuracy:  %f' % (accuracy))
         print('AUROC: %f' % (roc_auc_score(y_test, y_pred_proba)))
@@ -340,11 +336,7 @@ class SupervisedModels:
         )
         plt.xlabel('Recall')
         plt.ylabel('Precision')
-        plt.title(
-            'PR Curve for the {}-Fold Cross-Validation Training Set'.format(
-                cv_fold
-            )
-        )
+        plt.title(f'PR Curve for the {cv_fold}-Fold Cross-Validation Training Set')
         plt.legend(loc='best')
 
         # ROC and PR curves for Test set
