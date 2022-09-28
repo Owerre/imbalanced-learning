@@ -76,6 +76,41 @@ class SupervisedModels:
         )
         print('-' * 60)
 
+    def test_pred(self, model, X_test, y_test, model_nm=None):
+            """Predictions on the test set.
+
+            Parameters
+            ----------
+            model: trained supervised model
+            X_test: feature matrix of the test set
+            y_test: test set class labels
+            model_nm: name of classifier
+
+            Returns
+            -------
+            Performance metrics on the test set
+            """
+            # Make prediction on the test set
+            y_pred = model.predict(X_test)
+
+            # Compute the accuracy of the model
+            accuracy = accuracy_score(y_test, y_pred)
+
+            # Predict probability
+            y_pred_proba = model.predict_proba(X_test)[:, 1]
+
+            print(f'Test predictions for {str(model_nm)}')
+            print('-' * 60)
+            print('Accuracy:  %f' % (accuracy))
+            print('AUROC: %f' % (roc_auc_score(y_test, y_pred_proba)))
+            print('AUPRC: %f' % (average_precision_score(y_test, y_pred_proba)))
+            print('Predicted classes:', np.unique(y_pred))
+            print('Confusion matrix:\n', confusion_matrix(y_test, y_pred))
+            print(
+                'Classification report:\n', classification_report(y_test, y_pred)
+            )
+            print('-' * 60)
+
     def plot_auc_ap_svm(
         self, X_train, y_train, cv_fold=None, class_weight=None
     ):
@@ -229,41 +264,6 @@ class SupervisedModels:
         ax2.set_xticklabels(axes_labels)
         ax2.legend(loc='best')
         plt.show()
-
-    def test_pred(self, model, X_test, y_test, model_nm=None):
-        """Predictions on the test set.
-
-        Parameters
-        ----------
-        model: trained supervised model
-        X_test: feature matrix of the test set
-        y_test: test set class labels
-        model_nm: name of classifier
-
-        Returns
-        -------
-        Performance metrics on the test set
-        """
-        # Make prediction on the test set
-        y_pred = model.predict(X_test)
-
-        # Compute the accuracy of the model
-        accuracy = accuracy_score(y_test, y_pred)
-
-        # Predict probability
-        y_pred_proba = model.predict_proba(X_test)[:, 1]
-
-        print(f'Test predictions for {str(model_nm)}')
-        print('-' * 60)
-        print('Accuracy:  %f' % (accuracy))
-        print('AUROC: %f' % (roc_auc_score(y_test, y_pred_proba)))
-        print('AUPRC: %f' % (average_precision_score(y_test, y_pred_proba)))
-        print('Predicted classes:', np.unique(y_pred))
-        print('Confusion matrix:\n', confusion_matrix(y_test, y_pred))
-        print(
-            'Classification report:\n', classification_report(y_test, y_pred)
-        )
-        print('-' * 60)
 
     def plot_roc_pr_curves(
         self,
