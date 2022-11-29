@@ -283,7 +283,7 @@ class SupervisedModels:
 
         Parameters
         ----------
-        model: supervised classification model
+        model: trained supervised classification model
         X_train (array): feature matrix of the training set
         y_train (1d array): training set class labels
         X_test (array): feature matrix of the test set
@@ -296,10 +296,6 @@ class SupervisedModels:
         -------
         Matplotlib line plot
         """
-
-        # Fit the model
-        model.fit(X_train, y_train)
-
         # ROC and PR curves for cross-validation set
 
         # Make prediction on k-fold cross validation
@@ -329,7 +325,7 @@ class SupervisedModels:
         plt.axis([0, 1, 0, 1])
         plt.xlabel('False positive rate (FPR)')
         plt.ylabel('True positive rate (TPR)')
-        plt.title('ROC Curve for the Cross-Validation Training Set')
+        plt.title(f'ROC Curve for the {cv_fold}-Cross-Validation Training Set')
         plt.legend(loc='best')
 
         # PR curve
@@ -389,11 +385,11 @@ class SupervisedModels:
         color=None,
         label=None,
     ):
-        """Plot AUC-ROC  and AUC-PR curves for cross-validation vs. test sets.
+        """Plot AUC-ROC and AUC-PR curves for cross-validation vs. test sets.
 
         Parameters
         ----------
-        model: supervised classification model
+        model: trained supervised classification model
         X_train (array): feature matrix of the training set
         y_train (1d array): training set class labels
         X_test (array): feature matrix of the test set
@@ -406,9 +402,6 @@ class SupervisedModels:
         -------
         Matplotlib line plot
         """
-        # Fit the model
-        model.fit(X_train, y_train)
-
         # AUC-ROC  and AUC-PR for Test set
 
         # Predict probability on the test set
