@@ -54,8 +54,8 @@ class SupervisedModels:
         print(f'Predictions on the {subset} for {model_nm}')
         print('-' * 60)
         print('Accuracy:  %f' % (accuracy))
-        print('AUROC: %f' % (roc_auc_score(y_true, y_pred_proba)))
-        print('AUPRC: %f' % (average_precision_score(y_true, y_pred_proba)))
+        print('AUC-ROC: %f' % (roc_auc_score(y_true, y_pred_proba)))
+        print('AUC-PR: %f' % (average_precision_score(y_true, y_pred_proba)))
         print('Predicted classes:', np.unique(y_pred))
         print('Confusion matrix:\n', confusion_matrix(y_true, y_pred))
         print(
@@ -104,8 +104,8 @@ class SupervisedModels:
             )
         print('-' * 60)
         print('Accuracy (std): %f (%f)' % (score.mean(), score.std()))
-        print('AUROC: %f' % (roc_auc_score(y_train, y_pred_proba)))
-        print('AUPRC: %f' % (average_precision_score(y_train, y_pred_proba)))
+        print('AUC-ROC: %f' % (roc_auc_score(y_train, y_pred_proba)))
+        print('AUC-PR: %f' % (average_precision_score(y_train, y_pred_proba)))
         print('Predicted classes:', np.unique(y_cv_pred))
         print('Confusion matrix:\n', confusion_matrix(y_train, y_cv_pred))
         print(

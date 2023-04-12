@@ -75,7 +75,7 @@ class TransformationPipeline:
         # Create pipeline
         cat_pipeline = Pipeline(
             [
-                ('imputer', SimpleImputer(strategy='most_frequent')),
+                ('imputer', SimpleImputer(strategy='constant', fill_value="NA")),
                 ('one_hot_encoder', OneHotEncoder(handle_unknown='ignore')),
             ]
         )
